@@ -73,7 +73,7 @@ export default function Navbar() {
           </a>
           <a
             href={profile.github}
-            target="https://github.com/Vann0505"
+            target="_blank"
             rel="noreferrer"
             aria-label="GitHub profile"
             className="text-ink-400 hover:text-accent-blue transition-colors"
