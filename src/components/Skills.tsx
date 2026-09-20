@@ -2,8 +2,6 @@ import SectionTitle from "./SectionTitle";
 import SkillCard from "./SkillCard";
 import { skillCategories } from "../data/skills";
 
-// Section "Skills". Data diambil dari src/data/skills.ts — tambahkan skill
-// baru di sana, section ini akan otomatis merender-nya dalam grid.
 export default function Skills() {
   return (
     <section id="skills" className="px-6 py-24">

@@ -4,10 +4,7 @@ import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
 import { projects, Project } from "../data/projects";
 
-// Section "Featured Projects". Data project diambil dari src/data/projects.ts —
-// menambahkan project baru cukup dengan menambah object baru ke array di sana.
 export default function Projects() {
-  // State ini menyimpan project mana yang sedang dibuka di modal (null = tertutup).
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (

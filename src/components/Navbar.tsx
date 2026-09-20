@@ -3,8 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, Menu, X } from "lucide-react";
 import { profile } from "../data/profile";
 
-// Link navigasi tengah. "href" harus cocok dengan "id" section di App.tsx
-// supaya smooth scroll bekerja.
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "About Me", href: "#about" },
@@ -12,22 +10,16 @@ const NAV_LINKS = [
   { label: "Projects", href: "#projects" },
 ];
 
-// Navbar utama website.
-// Berisi logo (kiri), navigation links (tengah), dan social icons (kanan).
-// Sticky di bagian atas, dan berubah jadi hamburger menu di layar mobile.
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Beri sedikit background/border tambahan saat halaman di-scroll,
-  // supaya navbar tetap kontras dengan konten di belakangnya.
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Menangani smooth scrolling ke section terkait saat link diklik.
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     const el = document.querySelector(href);
@@ -44,7 +36,6 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        {/* LEFT: Logo — ganti "logoInitials" di src/data/profile.ts */}
         <a
           href="#home"
           onClick={(e) => {
@@ -57,7 +48,6 @@ export default function Navbar() {
           {profile.logoInitials}
         </a>
 
-        {/* CENTER: Navigation links — hanya tampil di desktop/tablet */}
         <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
@@ -71,7 +61,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* RIGHT: Social icons — ganti URL di src/data/profile.ts */}
         <div className="hidden md:flex items-center gap-4">
           <a
             href={profile.linkedin}
@@ -84,7 +73,7 @@ export default function Navbar() {
           </a>
           <a
             href={profile.github}
-            target="_blank"
+            target="https://github.com/Vann0505"
             rel="noreferrer"
             aria-label="GitHub profile"
             className="text-ink-400 hover:text-accent-blue transition-colors"
@@ -93,7 +82,6 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Tombol hamburger — hanya tampil di mobile */}
         <button
           className="md:hidden text-ink-100"
           onClick={() => setIsOpen((prev) => !prev)}
@@ -104,7 +92,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Menu mobile: muncul sebagai dropdown di bawah navbar */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

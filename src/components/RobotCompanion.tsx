@@ -6,15 +6,6 @@ import {
   useTransform,
 } from "framer-motion";
 
-// ---------------------------------------------------------------------------
-// RobotCompanion
-// Robot SVG dengan:
-// 1. Animasi idle naik-turun
-// 2. Mata mengikuti cursor
-// 3. Kepala sedikit miring mengikuti cursor
-// 4. Dua speech bubble kiri & kanan
-// ---------------------------------------------------------------------------
-
 const MAX_EYE_OFFSET = 4;
 const MAX_HEAD_TILT = 6;
 
@@ -31,10 +22,6 @@ export default function RobotCompanion() {
     getGreeting(new Date().getHours())
   );
 
-  // -------------------------------------------------------------------------
-  // UPDATE GREETING SETIAP MENIT
-  // -------------------------------------------------------------------------
-
   useEffect(() => {
     const interval = setInterval(() => {
       setGreeting(getGreeting(new Date().getHours()));
@@ -42,10 +29,6 @@ export default function RobotCompanion() {
 
     return () => clearInterval(interval);
   }, []);
-
-  // -------------------------------------------------------------------------
-  // CURSOR TRACKING
-  // -------------------------------------------------------------------------
 
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
@@ -60,7 +43,6 @@ export default function RobotCompanion() {
     damping: 14,
   });
 
-  // Gerakan mata
   const eyeX = useTransform(
     springX,
     [-1, 1],
@@ -73,16 +55,11 @@ export default function RobotCompanion() {
     [-MAX_EYE_OFFSET, MAX_EYE_OFFSET]
   );
 
-  // Gerakan kepala
   const headTilt = useTransform(
     springX,
     [-1, 1],
     [-MAX_HEAD_TILT, MAX_HEAD_TILT]
   );
-
-  // -------------------------------------------------------------------------
-  // MOUSE MOVE
-  // -------------------------------------------------------------------------
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -121,10 +98,6 @@ export default function RobotCompanion() {
     };
   }, [cursorX, cursorY]);
 
-  // -------------------------------------------------------------------------
-  // RETURN
-  // -------------------------------------------------------------------------
-
   return (
     <motion.div
       ref={containerRef}
@@ -138,9 +111,6 @@ export default function RobotCompanion() {
         ease: "easeInOut",
       }}
     >
-      {/* ================================================================
-          LEFT SPEECH BUBBLE
-      ================================================================= */}
 
       <motion.div
         initial={{
@@ -183,10 +153,6 @@ export default function RobotCompanion() {
         {greeting}
       </motion.div>
 
-      {/* ================================================================
-          ROBOT SVG
-      ================================================================= */}
-
       <motion.svg
         viewBox="0 0 200 200"
         className="
@@ -198,7 +164,6 @@ export default function RobotCompanion() {
           rotate: headTilt,
         }}
       >
-        {/* ANTENA */}
 
         <line
           x1="100"
@@ -217,8 +182,6 @@ export default function RobotCompanion() {
           fill="#4FD9E8"
         />
 
-        {/* KEPALA */}
-
         <rect
           x="50"
           y="30"
@@ -230,8 +193,6 @@ export default function RobotCompanion() {
           strokeWidth="2"
         />
 
-        {/* LAYAR WAJAH */}
-
         <rect
           x="62"
           y="46"
@@ -240,8 +201,6 @@ export default function RobotCompanion() {
           rx="14"
           fill="#05060B"
         />
-
-        {/* MATA KIRI */}
 
         <motion.circle
           cx="85"
@@ -254,8 +213,6 @@ export default function RobotCompanion() {
           }}
         />
 
-        {/* MATA KANAN */}
-
         <motion.circle
           cx="115"
           cy="70"
@@ -267,8 +224,6 @@ export default function RobotCompanion() {
           }}
         />
 
-        {/* BADAN */}
-
         <rect
           x="62"
           y="112"
@@ -279,8 +234,6 @@ export default function RobotCompanion() {
           stroke="#2A2F4A"
           strokeWidth="2"
         />
-
-        {/* CORE */}
 
         <circle
           cx="100"
@@ -298,8 +251,6 @@ export default function RobotCompanion() {
           fill="#5B8DEF"
         />
 
-        {/* LENGAN KIRI */}
-
         <rect
           x="38"
           y="118"
@@ -310,8 +261,6 @@ export default function RobotCompanion() {
           stroke="#2A2F4A"
           strokeWidth="2"
         />
-
-        {/* LENGAN KANAN */}
 
         <rect
           x="148"
@@ -324,10 +273,6 @@ export default function RobotCompanion() {
           strokeWidth="2"
         />
       </motion.svg>
-
-      {/* ================================================================
-          RIGHT SPEECH BUBBLE
-      ================================================================= */}
 
       <motion.div
         initial={{

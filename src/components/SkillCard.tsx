@@ -23,22 +23,6 @@ import { DiJava } from "react-icons/di";
 
 import type { Skill } from "../data/skills";
 
-/*
- * Mapping nama icon dari data/skills.ts
- * ke logo teknologi dari react-icons.
- *
- * Contoh:
- * {
- *   name: "Python",
- *   icon: "python"
- * }
- *
- * akan menggunakan SiPython.
- *
- * RAG dan LLM tidak memiliki logo resmi,
- * jadi menggunakan icon generik dari lucide-react.
- */
-
 const ICON_MAP: Record<string, IconType> = {
   python: SiPython,
   javascript: SiJavascript,

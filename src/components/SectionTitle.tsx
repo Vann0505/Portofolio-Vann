@@ -5,9 +5,6 @@ interface SectionTitleProps {
   subtitle?: string;
 }
 
-// Judul section yang konsisten dipakai di About, Skills, dan Projects.
-// Garis gradient kecil di bawah judul menjadi penanda visual section baru,
-// bukan sekadar dekorasi.
 export default function SectionTitle({ title, subtitle }: SectionTitleProps) {
   return (
     <motion.div

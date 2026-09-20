@@ -1,6 +1,5 @@
 import { profile } from "../data/profile";
 
-// Footer sederhana: copyright di tengah.
 export default function Footer() {
   const year = new Date().getFullYear();
 

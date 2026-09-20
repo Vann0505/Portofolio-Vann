@@ -1,16 +1,5 @@
 import { useEffect, useRef } from "react";
 
-// ---------------------------------------------------------------------------
-// NeuralBackground
-// Background animasi tema "neural network": titik-titik (node) yang melayang
-// pelan dan terhubung dengan garis tipis saat berdekatan, dipadukan dengan
-// aurora glow yang bergerak sangat lambat (lihat kelas "aurora-drift" di
-// tailwind.config.js / index.css).
-//
-// Component ini sengaja diberi "pointer-events: none" (lihat className di
-// bawah) supaya tidak pernah menghalangi klik pada navbar / button di atasnya.
-// ---------------------------------------------------------------------------
-
 interface Node {
   x: number;
   y: number;
@@ -18,8 +7,8 @@ interface Node {
   vy: number;
 }
 
-const NODE_COUNT = 46; // Jumlah titik neural network. Kecilkan jika ingin performa lebih ringan.
-const LINK_DISTANCE = 140; // Jarak maksimum (px) antar titik agar garis penghubung muncul.
+const NODE_COUNT = 46; 
+const LINK_DISTANCE = 140; 
 
 export default function NeuralBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -46,12 +35,8 @@ export default function NeuralBackground() {
       ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
     };
 
-    // Panggil resize() lebih dulu supaya width/height sudah terisi
-    // sebelum posisi awal node dihitung di bawah ini.
     resize();
 
-    // Inisialisasi posisi & kecepatan node secara acak, tapi sangat pelan
-    // supaya efek terasa "mengambang", bukan ramai/berisik.
     const nodes: Node[] = Array.from({ length: NODE_COUNT }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -62,7 +47,6 @@ export default function NeuralBackground() {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Update posisi node + pantulkan arah jika menyentuh tepi canvas.
       for (const node of nodes) {
         node.x += node.vx;
         node.y += node.vy;
@@ -70,7 +54,6 @@ export default function NeuralBackground() {
         if (node.y < 0 || node.y > height) node.vy *= -1;
       }
 
-      // Gambar garis penghubung antar node yang cukup dekat.
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -88,7 +71,6 @@ export default function NeuralBackground() {
         }
       }
 
-      // Gambar titik node itu sendiri (glow lembut).
       for (const node of nodes) {
         ctx.beginPath();
         ctx.arc(node.x, node.y, 1.6, 0, Math.PI * 2);
@@ -102,7 +84,6 @@ export default function NeuralBackground() {
     window.addEventListener("resize", resize);
 
     if (prefersReducedMotion) {
-      // Jika user meminta reduced motion, gambar sekali saja (statis), tidak looping.
       draw();
       cancelAnimationFrame(animationId);
     } else {
@@ -120,9 +101,7 @@ export default function NeuralBackground() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-base-950"
     >
-      {/* Layer aurora glow: dua gradient blur yang bergerak sangat pelan */}
       <div className="absolute inset-0 bg-aurora-glow animate-aurora-drift" />
-      {/* Layer neural network: digambar dengan canvas untuk performa */}
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
     </div>
   );

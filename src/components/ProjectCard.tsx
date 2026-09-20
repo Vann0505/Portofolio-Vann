@@ -6,8 +6,6 @@ interface ProjectCardProps {
   onOpen: (project: Project) => void;
 }
 
-// Card untuk satu project. Klik pada card TIDAK langsung membuka GitHub —
-// sebaliknya memanggil "onOpen" yang membuka ProjectModal (lihat Projects.tsx).
 export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
   return (
     <motion.button

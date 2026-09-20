@@ -3,11 +3,7 @@ import Button from "./Button";
 import RobotCompanion from "./RobotCompanion";
 import { profile } from "../data/profile";
 
-// Section pertama setelah navbar: perkenalan singkat (kiri) + robot
-// companion yang mengikuti cursor (kanan). Di mobile, robot pindah ke bawah teks.
 export default function Hero() {
-  // Bagian ini yang menangani "interaction": klik "View Projects" akan
-  // scroll halus ke section #projects.
   const scrollToProjects = () => {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -18,7 +14,6 @@ export default function Hero() {
       className="relative flex min-h-screen items-center px-6 pt-28 pb-16"
     >
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-2">
-        {/* LEFT: Teks perkenalan */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,19 +28,15 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            {/* CTA "View Projects": scroll ke #projects */}
             <Button onClick={scrollToProjects} variant="primary">
               View Projects
             </Button>
-            {/* CTA "Contact": placeholder, ganti profile.contact nanti dengan
-                email / LinkedIn / halaman contact */}
             <Button href={profile.contact} variant="secondary">
               Contact
             </Button>
           </div>
         </motion.div>
 
-        {/* RIGHT: Robot yang mengikuti cursor */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

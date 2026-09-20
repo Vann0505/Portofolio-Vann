@@ -8,11 +8,7 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-// Modal detail project. Muncul saat sebuah ProjectCard diklik.
-// Bisa ditutup dengan: tombol X, klik area luar (backdrop), atau tombol Escape.
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
-  // Bagian ini menangani "interaction": menutup modal dengan tombol Escape,
-  // dan mengunci scroll body selagi modal terbuka.
   useEffect(() => {
     if (!project) return;
 
@@ -38,7 +34,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
           className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4"
-          // Klik di area luar modal (backdrop) menutup modal.
           onClick={onClose}
           role="dialog"
           aria-modal="true"
@@ -49,7 +44,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            // Hentikan event click agar tidak "bubble" ke backdrop saat klik di dalam modal.
             onClick={(e) => e.stopPropagation()}
             className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-base-900 p-6 sm:p-8"
           >
