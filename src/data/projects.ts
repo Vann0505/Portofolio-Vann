@@ -15,7 +15,7 @@ export const projects: Project[] = [
     title: "OBESITY PREDICTOR",
     description:
       "Machine Learning powered web application built with Streamlit to assess and predict an individual's obesity risk levels.",
-    image: "public/Picture/1.png",
+    image: "/Picture/1.png",
     technologies: ["Python", "Maching Learning", "Streamlit", "Pandas & NumPy"],
     github: "https://github.com/Vann0505/ObesityPredictor",
     demo: "https://obesitypredictor-7spq9qsudewot5b85edf5i.streamlit.app/",
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     title: "Study Assistant Using RAG",
     description:
       "AI-powered document Q&A system that uses RAG to retrieve relevant information from uploaded documents and generate contextual answers with Gemini AI.",
-    image: "public/Picture/2.png",
+    image: "/Picture/2.png",
     technologies: ["Python", "FastAPI", "Gemini API", "ChromaDB", "PyPDF"],
     github: "https://github.com/",
     demo: "#",
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     title: "Task-Weaver",
     description:
       "A web app that automatically analyzes team capacity, skill sets, and project deadlines to distribute tasks fairly and boost productivity.",
-    image: "public/Picture/3.jpeg",
+    image: "/Picture/3.jpeg",
     technologies: ["JavaScript", "CSS", "SupaBase"],
     github: "https://github.com/rfvvel/TaskWeaver",
     demo: "#",
