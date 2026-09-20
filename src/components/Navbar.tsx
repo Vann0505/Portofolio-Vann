@@ -116,7 +116,7 @@ export default function Navbar() {
                 <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
                   <Linkedin size={20} className="text-ink-400" />
                 </a>
-                <a href={profile.github} target="https://github.com/Vann0505" rel="noreferrer" aria-label="GitHub profile">
+                <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub profile">
                   <Github size={20} className="text-ink-400" />
                 </a>
               </li>

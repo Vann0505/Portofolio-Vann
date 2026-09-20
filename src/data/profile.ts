@@ -12,7 +12,7 @@ export const profile = {
   ],
 
   linkedin: "https://www.linkedin.com/",
-  github: "https://github.com/",
+  github: "https://github.com/Vann0505",
 
   contact: "#",
 };
