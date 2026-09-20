@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0D18"/>
+      <stop offset="100%" stop-color="#0d2333"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#g3)"/>
+  <path d="M100 300 L220 180 L320 240 L500 100" stroke="#4FD9E8" stroke-width="3" fill="none" opacity="0.8"/>
+  <circle cx="100" cy="300" r="6" fill="#5B8DEF"/>
+  <circle cx="220" cy="180" r="6" fill="#A78BFA"/>
+  <circle cx="320" cy="240" r="6" fill="#4FD9E8"/>
+  <circle cx="500" cy="100" r="6" fill="#5B8DEF"/>
+  <text x="300" y="380" text-anchor="middle" fill="#9096AC" font-family="sans-serif" font-size="14">Replace with project-3 screenshot</text>
+</svg>
