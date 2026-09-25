@@ -61,7 +61,7 @@ export const projects: Project[] = [
     title: "Data Analytic(Used Car Price)",
     description:
       "Analyzed used car prices using Python and SQL to uncover patterns related to brand, model year, mileage, and accident history.",
-    image: "/Picture/3.jpeg",
+    image: "/Picture/5.png",
     technologies: ["Python", "SQL"],
     github: "https://github.com/Vann0505/used-car-price-analysis",
     details:
