@@ -92,14 +92,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               >
                 <Github size={16} /> GitHub
               </a>
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-blue to-accent-violet px-5 py-2.5 text-sm text-white hover:brightness-110 transition-all"
-              >
-                <ExternalLink size={16} /> Live Demo
-              </a>
+
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-blue to-accent-violet px-5 py-2.5 text-sm text-white hover:brightness-110 transition-all"
+                >
+                  <ExternalLink size={16} /> Live Demo
+                </a>
+              )}
             </div>
           </motion.div>
         </motion.div>
