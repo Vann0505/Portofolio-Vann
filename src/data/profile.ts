@@ -15,4 +15,6 @@ export const profile = {
   github: "https://github.com/Vann0505",
 
   contact: "#",
+
+  cvUrl: "/CV-EvanVarianJonandha.pdf",
 };
