@@ -15,7 +15,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "Python", icon: "python" },
       { name: "JavaScript", icon: "javascript" },
       { name: "C", icon: "c" },
-      { name: "Java", icon: "java" },
     ],
   },
   {
