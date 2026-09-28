@@ -16,9 +16,7 @@ export default function DownloadCVButton() {
       className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-gradient-to-r from-accent-blue to-accent-violet px-5 py-3 text-sm font-medium text-white shadow-lg shadow-accent-blue/20 transition-shadow hover:shadow-accent-violet/30 focus-visible:outline-none"
     >
       <Download size={18} aria-hidden="true" />
-      {/* Teks disembunyikan di layar sangat kecil supaya tombol tetap ringkas,
-          tapi tetap bisa dibaca screen reader lewat aria-label di atas. */}
-      <span className="hidden sm:inline">Download CV</span>
+      <span className="hidden sm:inline">Resume</span>
     </motion.a>
   );
 }

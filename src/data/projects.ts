@@ -69,15 +69,14 @@ export const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Campus Navigator",
+    title: "Face Mask Detection",
     description:
-      "A ldings on campus.",
-    image: "/Picture/3.jpeg",
-    technologies: ["React", "Node.js", "MySQL"],
-    github: "https://github.com/",
-    demo: "#",
+      "An AI-powered computer vision application that detects whether people are wearing masks correctly using YOLO11.",
+    image: "/Picture/6.jpeg",
+    technologies: ["Python","YOLO11","Ultralytics","OpenCV","Streamlit"],
+    github: "https://github.com/Vann0505/Face-Mask-Detection",
     details:
-      "AI Task Allocator is an intelligent web application designed to eliminate manual project coordination by using artificial intelligence to evaluate team capacity, skill sets, and deadlines for automatic task distribution. By continuously analyzing real-time workloads and task priorities, the platform prevents burnout, ensures fair work distribution, and cuts project planning time by up to 80%. This data-driven approach removes delegation bias and administrative overhead, allowing modern teams to focus entirely on high-impact execution.",
+      "Face Mask Detection is a computer vision application built using YOLO11 to detect and classify face mask usage into three categories: with mask, without mask, and mask worn incorrectly. The model was trained on 2,204 images and achieved a Precision of 90.02%, Recall of 78.84%, and mAP@50 of 84.80%. The application provides image-based detection through a Streamlit interface, allowing users to upload or capture an image and receive real-time detection results with confidence scores.",
   },
   {
     id: 7,
